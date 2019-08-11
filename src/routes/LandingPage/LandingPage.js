@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '../../components/Utils/Utils';
 
 export default class LandingPage extends React.Component {
@@ -12,10 +13,11 @@ export default class LandingPage extends React.Component {
                 <p>Keep track of all of the books on your shelf across all platforms</p>
                 <p>Mobile Bookshelf's system allos your to list and organizes the books you want to read, are reading and have completed</p>
                 </div>
-                <Button
-                        to='/register'>
-                            Register Now!
-                </Button>
+                <Link to='/register'>
+                    <Button>
+                                Register Now!
+                    </Button>
+                </Link>
             </section>
         )
     }

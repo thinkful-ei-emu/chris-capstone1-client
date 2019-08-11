@@ -1,21 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import TokenService from '../../services/token-service';
 import './Header.css';
 
-export default class Header extends React.Component {
+export default class Header extends Component {
     handleLogoutClick = () => {
         TokenService.clearAuthToken();
+        this.props.logoutSuccess();
     }
 
     renderLogoutLink() {
         return (
-            <nav className='Nav'>
+            <>
                 <div className='left-nav'>
-                    <Link to='/home'>
-                        Home
+                    <Link to='/sharedshelf'>
+                        Shared Shelf
                     </Link>
-                    <Link to='/userhome'>
+                    <Link to='/yourshelf'>
                         Your BookShelf
                     </Link>
                 </div>
@@ -26,13 +27,13 @@ export default class Header extends React.Component {
                         Logout
                     </Link>
                 </div>
-            </nav>
+            </>
         )
     }
 
     renderLoginLink() {
         return (
-            <nav className='Nav'>
+            <>
                 <div className='left-nav'>
                     <Link to='/'>
                         Home
@@ -48,17 +49,23 @@ export default class Header extends React.Component {
                             Register
                     </Link>
                 </div>
-            </nav>
+            </>
         )
     }
 
     render() {
-        return (
-        <>
-            {TokenService.hasAuthToken()
-            ? this.renderLogoutLink()
-            : this.renderLoginLink()}
-        </>
-        )
+        return <>
+            <nav className='Header'>
+              <h1>
+                <Link to='/sharedshelf'>
+                  Mobile-Bookshelf
+                </Link>
+              </h1>
+              {this.props.loggedIn
+                ? this.renderLogoutLink()
+                : this.renderLoginLink()}
+            </nav>
+      
+          </>
     }
 }
