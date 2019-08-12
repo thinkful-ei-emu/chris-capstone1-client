@@ -1,8 +1,9 @@
 import React from 'react';
 import { Button, Input } from '../Utils/Utils';
 import BookApiService from '../../services/book-api-service';
+import './HomePageItem.css';
 
-export default class ReadListItem extends React.Component {
+export default class HomePageItem extends React.Component {
     state = {
         error: null,
         rating: undefined,
@@ -38,8 +39,10 @@ export default class ReadListItem extends React.Component {
 
     renderAddRating(){
         const {book, addRating } = this.props;
-        return<>
-        <Input type='number' value={this.state.rating} onChange={e => this.updateBookRating(e.target.value)} />
+        return<div>
+            <p>Read it before? What's your grade?</p>
+        <Input className='addRating' type='number' value={this.state.rating} onChange={e => this.updateBookRating(e.target.value)} />
+        <span><strong>% </strong></span>
             <Button onClick={async () => {
                 await addRating(this.state.rating, book.id)
                 await BookApiService.getRating()
@@ -47,12 +50,13 @@ export default class ReadListItem extends React.Component {
                     .then(res => {
                         if(!!res)
                             this.setState({ ratedAlready: !!res, ratingId: res.id })
-        })
+                    })
+                    .catch(error => console.error(error))
                 this.setState({ ratedAlready: true })
             }}>
                 Grade!
             </Button>
-            </>
+            </div>
     }
 
     render () {
@@ -67,15 +71,16 @@ export default class ReadListItem extends React.Component {
         }
 
         return (
-            <li>
-            <div className='ReadListItem_image' style={{backgroundImage: `url(${book.image})`}} />
+            <div className='HomePageItem'>
+            {book.image && <img className='HomePageItem_image' src={book.image} alt='the cover of the book' />}
 
-            <div className='ReadListItem_details'>
-                <div className='ReadListItem_text'>
-                    <h2 className='ReadListItem_title'>{book.title}</h2>
-                    <p className='ReadListItem_author'>{book.author}</p>
+            <div className='HomePageItem_details'>
+                <div className='HomePageItem_text'>
+                    <h2 className='HomePageItem_title'>{book.title}</h2>
+                    <p className='HomePageItem_author'>{book.author}</p>
                 </div>
             </div>
+            <div>
             <Button onClick={() => addToYourShelf(newBook)}>
                 Add to Your Shelf
             </Button>
@@ -83,7 +88,8 @@ export default class ReadListItem extends React.Component {
             {this.state.ratedAlready 
               ? this.renderDeleteRating()
               : this.renderAddRating()}
-        </li>
+              </div>
+        </div>
         )
     }
 }

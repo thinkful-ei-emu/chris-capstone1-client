@@ -4,6 +4,7 @@ import BookApiService from '../../services/book-api-service';
 import { Section, Button } from '../../components/Utils/Utils';
 import BookContent from '../../components/BookContent/BookContent';
 import { Link } from 'react-router-dom';
+import './BookPage.css';
 
 
 export default class BookPage extends Component {
@@ -39,7 +40,10 @@ export default class BookPage extends Component {
     renderBook() {
         const { book } = this.context;
         return <>
-        <div className='ThingPage__image' style={{backgroundImage: `url(${book.image})`}} />
+        <div className='BookPage_image'>
+        {book.image && <img className='Book_image' src={book.image} alt='the cover of the book' />}
+        </div>
+        <div className='BookPage_info'>
         <h2>{book.title}</h2>
         <h4>{book.author}</h4>
         <BookContent key={book.id} book={book} />
@@ -52,6 +56,7 @@ export default class BookPage extends Component {
         <Button onClick={() => this.bookDelete(book.id)}>
             delete
         </Button>
+        </div>
       </>
     }
 

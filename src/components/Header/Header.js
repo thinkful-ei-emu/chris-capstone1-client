@@ -10,17 +10,20 @@ export default class Header extends Component {
     }
 
     renderLogoutLink() {
+        let sharedShelf = <><Link to='/sharedshelf'>
+        Shared Shelf
+    </Link></>;
+        let yourShelf = <><Link to='/yourshelf'>
+        Your BookShelf
+    </Link></>;
         return (
             <>
-                <div className='left-nav'>
-                    <Link to='/sharedshelf'>
-                        Shared Shelf
-                    </Link>
-                    <Link to='/yourshelf'>
-                        Your BookShelf
-                    </Link>
+                <div className='center-nav'>
+                    {this.props.location === '/yourshelf'
+                        ? yourShelf
+                        : sharedShelf}
                 </div>
-                <div className='navLoggedIn'>
+                <div className='Header__logged-in'>
                     <Link
                     onClick={this.handleLogoutClick}
                     to='/'>
@@ -34,12 +37,7 @@ export default class Header extends Component {
     renderLoginLink() {
         return (
             <>
-                <div className='left-nav'>
-                    <Link to='/'>
-                        Home
-                    </Link>
-                </div>
-                <div className='navNotLoggedIn'>
+                <div className='Header__not-logged-in'>
                     <Link
                         to='/login'>
                             Log In
@@ -56,11 +54,11 @@ export default class Header extends Component {
     render() {
         return <>
             <nav className='Header'>
-              <h1>
-                <Link to='/sharedshelf'>
-                  Mobile-Bookshelf
+              <h2>
+                <Link to='/'>
+                  MBIIL
                 </Link>
-              </h1>
+              </h2>
               {this.props.loggedIn
                 ? this.renderLogoutLink()
                 : this.renderLoginLink()}

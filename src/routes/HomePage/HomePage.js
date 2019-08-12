@@ -4,8 +4,9 @@ import BookApiService from '../../services/book-api-service';
 import { Section } from '../../components/Utils/Utils';
 import HomePageItem from '../../components/HomePageItem/HomePageItem';
 import TokenService from '../../services/token-service';
+import './HomePage.css';
 
-export default class UserHomePage extends React.Component {
+export default class HomePage extends React.Component {
     
     static contextType = ListContext;
 
@@ -47,17 +48,13 @@ export default class UserHomePage extends React.Component {
 
         return (
         <>
-            <div className='currentList'>
+            <div className='List'>
                 <h2>What Others are Reading</h2>
-                <ul>
-                    {currentList}
-                </ul>
+                {currentList}
             </div>
-            <div className='readList'>
+            <div className='List'>
                 <h2>Books Others have Enjoyed</h2>
-                <ul>
-                    {readList}
-                </ul>
+                {readList}
             </div>
         </>
         )
@@ -66,7 +63,7 @@ export default class UserHomePage extends React.Component {
     render() {
         const { error } = this.context;
         return (
-            <Section list className='UserHomePage'>
+            <Section list className='HomePage'>
                 {error
                   ? <p className='red'>There was an error, try again.</p>
                   : this.renderBooks()}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ListContext from '../../context/ListContext';
 import BookApiService from '../../services/book-api-service';
 import { Section, Button, Input } from '../Utils/Utils';
+import './AddBook.css';
 
 export default class AddBookForm extends Component {
     static contextType = ListContext;
@@ -155,12 +156,12 @@ export default class AddBookForm extends Component {
         const { title, author, list, book_source,
             book_report, image, rating, error, genreff } = this.state;
         return(
-            <Section className='EditBookForm'>
+            <Section className='AddBookForm'>
                 <h1>Add Book</h1>
-                <form className='EditBook_form'
+                <form className='AddBook_form'
                     onSubmit={this.handleSubmit}
             >
-                <div className='Edit_error' role='alert'>
+                <div className='Add_error' role='alert'>
                 {error && <p>{error.message}</p>}
                 </div>
                 <div>
@@ -226,7 +227,7 @@ export default class AddBookForm extends Component {
                         onChange={e => this.updateBookReport(e.target.value)}
                         />
                     </div>
-                <div className='EditBook__buttons'>
+                <div className='AddBook__buttons'>
                         <Button type='submit'>
                         Add
                         </Button>

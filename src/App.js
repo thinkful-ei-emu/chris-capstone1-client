@@ -13,6 +13,7 @@ import EditBookForm from './components/EditBook/EditBook';
 import AddBookForm from './components/AddBook/AddBook';
 import TokenService from './services/token-service';
 import HomePage from './routes/HomePage/HomePage';
+import './App.css';
 
 class App extends React.Component {
   state = { hasError: false, loggedIn: false }

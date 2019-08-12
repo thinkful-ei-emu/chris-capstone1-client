@@ -1,0 +1,23 @@
+.BookPage {
+    display: flex;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.BookPage_image {
+    text-align: center;
+}
+
+.Book_image{
+    height: 300px;
+}
+
+.BookPage_info{
+    margin: 10px;
+}
+
+@media screen and (min-width: 450px) {
+    .Book_image{
+        height: 500px;
+    }
+  }

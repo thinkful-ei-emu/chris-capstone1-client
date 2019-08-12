@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import ListContext from '../../context/ListContext';
 import BookApiService from '../../services/book-api-service';
-import { Section, Button } from '../Utils/Utils';
+import { Section, Button, Input } from '../Utils/Utils';
+import './EditBook.css';
 
 export default class EditBookForm extends Component {
     static contextType = ListContext;
@@ -39,7 +40,10 @@ export default class EditBookForm extends Component {
         e.preventDefault()
         const { title, author, list, book_source, genre,
                 book_report, image, rating } = this.state;
-        
+
+        if(list !== 'read')
+            this.setState({ book_report: '', rating: '' })
+
         const book = { title, author, list, book_source, genre,
             book_report, image, rating };
         
@@ -167,13 +171,13 @@ export default class EditBookForm extends Component {
                 </div>
                 <div>
                     <label htmlFor='title'>Title {' '} </label>
-                    <input type='text' name='title' id='title'
+                    <Input type='text' name='title' id='title'
                     value={title} required
                     onChange={e => this.updateBookTitle(e.target.value)}/>
                 </div>
                 <div>
                     <label htmlFor='author'>Author {' '} </label>
-                    <input type='text' name='author' id='author'
+                    <Input type='text' name='author' id='author'
                     value={author} required
                     onChange={e => this.updateBookAuthor(e.target.value)}/>
                 </div>
@@ -206,28 +210,28 @@ export default class EditBookForm extends Component {
                 </div>
                 {this.renderGenre()}
                 <div>
-                    <label htmlFor='image'>Image {' '} </label>
-                    <input type='url' name='image' id='image'
-                    value={image}
+                    <label htmlFor='image'>Image Link (must have 'https://') {' '} </label>
+                    <Input type='url' name='image' id='image'
+                    value={image} placeholder='https://www.samplesite.com/book_cover.jpg'
                     onChange={e => this.updateBookImage(e.target.value)}/>
                 </div>
-                <div>
+                {this.state.list ==='read' && <><div>
                     <label htmlFor='rating'>Report Score (1-100) {' '} </label>
-                    <input type='number' name='rating' id='rating'
+                    <Input type='number' name='rating' id='rating'
                     value={rating} min='1' max='100'
                     onChange={e => this.updateBookRating(e.target.value)}/>
                 </div>
                 <div>
-                        <label htmlFor='book_report'>
-                        BookReport
-                        </label>
-                        <textarea
-                        name='book_report'
-                        id='book_report'
-                        value={book_report}
-                        onChange={e => this.updateBookReport(e.target.value)}
-                        />
-                    </div>
+                    <label htmlFor='book_report'>
+                    BookReport
+                    </label>
+                    <textarea
+                    name='book_report'
+                    id='book_report'
+                    value={book_report}
+                    onChange={e => this.updateBookReport(e.target.value)}
+                    />
+                </div></>}
                 <div className='EditBook__buttons'>
                         <Button type='submit'>
                         Save

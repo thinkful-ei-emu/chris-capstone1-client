@@ -15,7 +15,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "prebuild": "react-scripts test --colors",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "now ./build",
+    "postdeploy": "now alias -A ./build/now.json"
   },
   "eslintConfig": {
     "extends": "react-app"

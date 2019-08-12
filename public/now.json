@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "alias": "chris-mobile-bookshelf-app",
+    "name": "mobile-bookshelf-app",
+    "routes": [
+        {
+          "src": "^/static/(.*)",
+          "dest": "/static/$1"
+        },
+        {
+          "src": ".*",
+          "dest": "/index.html"
+        }
+    ]
+  }

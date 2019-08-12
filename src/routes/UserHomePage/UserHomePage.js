@@ -4,6 +4,7 @@ import BookApiService from '../../services/book-api-service';
 import { Section } from '../../components/Utils/Utils';
 import UserHomeItem from '../../components/UserHomeItem/UserHomeItem';
 import { Link } from 'react-router-dom';
+import './UserHomePage.css';
 
 export default class UserHomePage extends React.Component {
     static contextType = ListContext;
@@ -38,20 +39,22 @@ export default class UserHomePage extends React.Component {
 
         return (
         <>
-            <Link to='/addbook'>
+            <Link to='/addbook' className='AddBook'>
                 Add a Book
             </Link>
-            <div className='wishList'>
+            <div className='UserHomeList'>
+            <div className='wishList List'>
                 <h2>Wish List</h2>
                 {wishList}
             </div>
-            <div className='currentList'>
+            <div className='currentList List'>
                 <h2>Current Reads</h2>
                 {currentList}
             </div>
-            <div className='readList'>
+            <div className='readList List'>
                 <h2>Finished Reads</h2>
                 {readList}
+            </div>
             </div>
         </>
         )

@@ -1,0 +1,22 @@
+
+.hero-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Bookshelf.jpg/2048px-Bookshelf.jpg");
+    height: 93vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.LandingPage h1 {
+    font-size: 40px
+}
+
+.hero-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
