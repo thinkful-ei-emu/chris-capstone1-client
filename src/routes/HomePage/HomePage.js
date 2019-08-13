@@ -15,7 +15,7 @@ export default class HomePage extends React.Component {
         BookApiService.getBooks()
             .then(res => res.filter(book => 
                 book.user.user_name !== TokenService.getUserName()))
-            .then(this.context.setBookList)
+            .then(res => this.context.setBookList(res, this.props.match.path))
             .catch(this.context.setError)
     }
 

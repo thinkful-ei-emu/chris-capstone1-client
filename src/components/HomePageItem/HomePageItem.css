@@ -12,7 +12,7 @@
     padding: 5px;
   }
   
-  .HomePageItem:hover {
+  button:hover {
     cursor: pointer;
   }
   
@@ -22,15 +22,18 @@
     border-radius: 10px 10px 0 0;
     background-size: cover;
     background-position: 50% 50%;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .HomePageItem_details {
-    padding: 10px;
     display: flex;
     flex: 1;
     flex-direction: column;
     justify-content: space-between;
     width: 250px;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .HomePageItem_details h2 {
@@ -44,6 +47,6 @@
   }
   
   .addRating {
-    width: 50px;
+    width: 70px;
     display: inline;
   }

@@ -1,7 +1,7 @@
 
 .hero-image {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Bookshelf.jpg/2048px-Bookshelf.jpg");
-    height: 93vh;
+    height: 87vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

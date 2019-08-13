@@ -5,6 +5,7 @@
 body {
     font-size: 17px;
     background-color: #E4F6F9;
+    height: 100%;
 }
 
 /* .App {
@@ -20,5 +21,5 @@ body {
   }
   
   .AppMain {
-    margin-top: 20px;
+    margin-top: 6vh;
   }

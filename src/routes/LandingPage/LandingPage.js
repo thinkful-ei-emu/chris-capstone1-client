@@ -13,7 +13,7 @@ export default class LandingPage extends React.Component {
                     <div className='hero-text'>
                     <h1>Mobile Bookshelf</h1>
                     <p>Keep track of all of the books on your shelf across all platforms</p>
-                    <p>Mobile Bookshelf's system allos your to list and organizes the books you want to read, are reading and have completed</p>
+                    <p>Mobile Bookshelf's system allows you to list and organize the books you want to read, are reading and have completed</p>
                     <Link to='/register'>
                         <Button>
                                     Register Now!

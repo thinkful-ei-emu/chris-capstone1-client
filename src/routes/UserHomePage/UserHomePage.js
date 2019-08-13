@@ -12,7 +12,7 @@ export default class UserHomePage extends React.Component {
     componentDidMount() {
         this.context.clearError();
         BookApiService.getUserBooks()
-            .then(this.context.setBookList)
+            .then(res => this.context.setBookList(res, this.props.match.path))
             .catch(this.context.setError)
     }
 

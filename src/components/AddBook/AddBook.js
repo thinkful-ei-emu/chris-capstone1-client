@@ -205,28 +205,28 @@ export default class AddBookForm extends Component {
                 </div>
                 {this.renderGenre()}
                 <div>
-                    <label htmlFor='image'>Image {' '} </label>
+                    <label htmlFor='image'>Image Link (must have 'https://') {' '} </label>
                     <Input type='url' name='image' id='image'
                     value={image}
                     onChange={e => this.updateBookImage(e.target.value)}/>
                 </div>
-                <div>
+                {this.state.list ==='read' && <><div>
                     <label htmlFor='rating'>Report Score (1-100) {' '} </label>
                     <Input type='number' name='rating' id='rating'
                     value={rating} min='1' max='100'
                     onChange={e => this.updateBookRating(e.target.value)}/>
                 </div>
                 <div>
-                        <label htmlFor='book_report'>
-                        BookReport
-                        </label>
-                        <textarea
-                        name='book_report'
-                        id='book_report'
-                        value={book_report}
-                        onChange={e => this.updateBookReport(e.target.value)}
-                        />
-                    </div>
+                    <label htmlFor='book_report'>
+                    BookReport
+                    </label>
+                    <textarea
+                    name='book_report'
+                    id='book_report'
+                    value={book_report}
+                    onChange={e => this.updateBookReport(e.target.value)}
+                    />
+                </div></>}
                 <div className='AddBook__buttons'>
                         <Button type='submit'>
                         Add

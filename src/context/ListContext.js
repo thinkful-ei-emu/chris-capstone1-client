@@ -3,6 +3,7 @@ import React from 'react';
 const ListContext = React.createContext({
     bookList: [],
     error: null,
+    location: null,
     setError: () => {},
     clearError: () => {},
     setBookList: () => {},
@@ -17,9 +18,10 @@ export class ListProvider extends React.Component {
     state = {
         bookList: [],
         error: null,
+        location: null,
     };
 
-    setBookList = bookList => this.setState({ bookList })
+    setBookList = (bookList, location) => this.setState({ bookList, location })
 
     setError = error => {
         console.error(error)
@@ -55,6 +57,7 @@ export class ListProvider extends React.Component {
         const value = {
             bookList: this.state.bookList,
             error: this.state.error,
+            location:this.state.location,
             setError: this.setError,
             clearError: this.clearError,
             setBookList: this.setBookList,

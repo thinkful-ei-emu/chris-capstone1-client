@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import TokenService from '../../services/token-service';
 import './Header.css';
+import ListContext from '../../context/ListContext';
 
 export default class Header extends Component {
+    static contextType = ListContext;
+
     handleLogoutClick = () => {
         TokenService.clearAuthToken();
         this.props.logoutSuccess();
@@ -19,9 +22,9 @@ export default class Header extends Component {
         return (
             <>
                 <div className='center-nav'>
-                    {this.props.location === '/yourshelf'
-                        ? yourShelf
-                        : sharedShelf}
+                    {this.context.location === '/yourshelf'
+                        ? sharedShelf
+                        : yourShelf}
                 </div>
                 <div className='Header__logged-in'>
                     <Link
@@ -54,11 +57,9 @@ export default class Header extends Component {
     render() {
         return <>
             <nav className='Header'>
-              <h2>
                 <Link to='/'>
-                  MBIIL
+                    <img className='Header_image' src={require('../../MB_Logo.jpg')} alt='the mobile bookshelf logo' />
                 </Link>
-              </h2>
               {this.props.loggedIn
                 ? this.renderLogoutLink()
                 : this.renderLoginLink()}
