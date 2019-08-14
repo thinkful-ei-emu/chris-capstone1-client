@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookContent component renderes BookContent by default 1`] = `
+<Fragment>
+  <p>
+    source: 
+    Print
+  </p>
+  <p>
+    list: 
+    wishlist
+  </p>
+  <p>
+    genre: 
+    Fantasy
+  </p>
+  <p>
+    book report: 
+    Nothing to see here
+  </p>
+  <p>
+    your rating: 
+    13
+    %
+  </p>
+  <p>
+    average user rating: 
+    <span>
+      %
+    </span>
+  </p>
+  <p>
+    # of ratings: 
+    <span />
+  </p>
+</Fragment>
+`;

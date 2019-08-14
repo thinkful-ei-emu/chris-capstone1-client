@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RegistrationForm component renderes RegistrationForm by default 1`] = `
+<form
+  className="RegistrationForm"
+  onSubmit={[Function]}
+>
+  <div
+    role="alert"
+  />
+  <div
+    className="full_name"
+  >
+    <label
+      htmlFor="RegistrationForm_full_name"
+    >
+      Full Name: 
+      <Required />
+    </label>
+    <Input
+      id="RegistrationForm_full_name"
+      name="full_name"
+      required={true}
+      type="text"
+    />
+  </div>
+  <div
+    className="user_name"
+  >
+    <label
+      htmlFor="RegistrationForm_user_name"
+    >
+      Username: 
+      <Required />
+    </label>
+    <Input
+      id="RegistrationForm_user_name"
+      name="user_name"
+      required={true}
+      type="text"
+    />
+  </div>
+  <div
+    className="password"
+  >
+    <label
+      htmlFor="RegistrationForm_password"
+    >
+      Password: 
+      <Required />
+    </label>
+    <Input
+      id="RegistrationForm_password"
+      name="password"
+      required={true}
+      type="text"
+    />
+  </div>
+  <div
+    className="email"
+  >
+    <label
+      htmlFor="RegistrationForm_email"
+    >
+      E-mail: 
+      <Required />
+    </label>
+    <Input
+      id="RegistrationForm_email"
+      name="email"
+      required={true}
+      type="email"
+    />
+  </div>
+  <Button
+    type="submit"
+  >
+    Register
+  </Button>
+</form>
+`;

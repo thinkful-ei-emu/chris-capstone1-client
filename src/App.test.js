@@ -5,10 +5,10 @@ import { ListProvider } from './context/ListContext';
 import { BookProvider } from './context/BookContext';
 import App from './App';
 
-it('renders without crashing', () => {
+describe('App Component', () => {
     it('renders without crashing', () => {
         const div = document.createElement('div')
-        ReactDOM.render(
+        ReactDom.render(
             <BrowserRouter>
             <ListProvider>
                 <BookProvider>
@@ -18,6 +18,6 @@ it('renders without crashing', () => {
         </BrowserRouter>,
           div
         )
-        ReactDOM.unmountComponentAtNode(div)
+        ReactDom.unmountComponentAtNode(div)
       })
-}
+})

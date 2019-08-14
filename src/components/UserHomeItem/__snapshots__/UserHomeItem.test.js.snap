@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserHomeItem component renderes UserHomeItem by default 1`] = `
+<div
+  className="UserHomeItem"
+>
+  <Link
+    className="UserHomeItem_info"
+    to="/books/1"
+  >
+    <img
+      alt="the cover of the book"
+      className="UserHomeItem_image"
+      src="https://media.vanityfair.com/photos/5d1662c85f741a0008ed05e1/master/w_800%2Cc_limit/best-books-of-2019-Disappearing-Earth.jpg"
+    />
+    <div
+      className="UserHomeItem_details"
+    >
+      <div
+        className="UserHomeItem_text"
+      >
+        <h2
+          className="UserHomeItem_title"
+        >
+          Disappearing Earth
+        </h2>
+        <p
+          className="UserHomeItem_author"
+        >
+          Julia Phillips
+        </p>
+        <p>
+          Average User Rating: 
+          <span>
+            69.8
+            %
+          </span>
+           
+           
+           
+          #ofRatings: 
+          <span>
+            5
+          </span>
+        </p>
+      </div>
+    </div>
+  </Link>
+  <div
+    className="buttons"
+  >
+    <Link
+      to="/edit/1"
+    >
+      <Button>
+        Edit
+      </Button>
+    </Link>
+     
+    <Button
+      onClick={[Function]}
+    >
+      delete
+    </Button>
+  </div>
+</div>
+`;

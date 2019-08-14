@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PublicOnlyRoute component renderes PublicOnlyRoute by default 1`] = `
+<Route
+  exact={true}
+  path="/"
+  render={[Function]}
+/>
+`;

@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component renderes Header by default 1`] = `
+<Fragment>
+  <nav
+    className="Header"
+  >
+    <Link
+      to="/"
+    >
+      <img
+        alt="the mobile bookshelf logo"
+        className="Header_image"
+        src="MB_Logo.jpg"
+      />
+    </Link>
+    <div
+      className="center-nav"
+    >
+      <Link
+        to="/yourshelf"
+      >
+        Your BookShelf
+      </Link>
+    </div>
+    <div
+      className="Header__logged-in"
+    >
+      <Link
+        onClick={[Function]}
+        to="/"
+      >
+        Logout
+      </Link>
+    </div>
+  </nav>
+</Fragment>
+`;

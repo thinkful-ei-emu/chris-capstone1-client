@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePageItem component renderes HomePageItem by default 1`] = `
+<div
+  className="HomePageItem"
+>
+  <img
+    alt="the cover of the book"
+    className="HomePageItem_image"
+    src="https://media.vanityfair.com/photos/5d1662c85f741a0008ed05e1/master/w_800%2Cc_limit/best-books-of-2019-Disappearing-Earth.jpg"
+  />
+  <div
+    className="HomePageItem_details"
+  >
+    <div
+      className="HomePageItem_text"
+    >
+      <h2
+        className="HomePageItem_title"
+      >
+        Disappearing Earth
+      </h2>
+      <p
+        className="HomePageItem_author"
+      >
+        Julia Phillips
+      </p>
+      <p>
+        Being read by: 
+        <strong>
+          s.smith
+        </strong>
+      </p>
+      <p>
+        s.smith
+        's rating: 
+        <span>
+          13
+          %
+        </span>
+      </p>
+      <p>
+        Average User Rating: 
+        <span>
+          69.8
+          %
+        </span>
+         
+         
+         
+        #ofRatings: 
+        <span>
+          5
+        </span>
+      </p>
+    </div>
+  </div>
+  <div>
+    <Button
+      onClick={[Function]}
+    >
+      Add to Wishlist
+    </Button>
+     
+    <div>
+      <p>
+        Read it? What's your grade? (1-100)
+      </p>
+      <Input
+        className="addRating"
+        onChange={[Function]}
+        type="number"
+      />
+      <span>
+        <strong>
+          % 
+        </strong>
+      </span>
+      <Button
+        onClick={[Function]}
+      >
+        Grade!
+      </Button>
+    </div>
+  </div>
+</div>
+`;
