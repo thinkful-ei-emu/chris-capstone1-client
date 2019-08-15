@@ -5,7 +5,8 @@
 }
 
 .BookPage_image {
-    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .Book_image{
@@ -13,11 +14,32 @@
 }
 
 .BookPage_info{
-    margin: 10px;
+    background-color: #CC8B56;
+    border: 0;
+    text-decoration: none;
+    box-shadow: 0px 11px 21px -8px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 5px;
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 @media screen and (min-width: 450px) {
     .Book_image{
         height: 500px;
     }
-  }
+    .BookPage_info{
+        width: 350px;
+    }
+}
+
+@media screen and (min-width: 850px) {
+    .BookPage_image {
+        margin: 0;
+    }
+    .BookPage_info{
+        margin-left: 10px;
+    }
+
+}

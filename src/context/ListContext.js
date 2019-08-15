@@ -21,7 +21,10 @@ export class ListProvider extends React.Component {
         location: null,
     };
 
-    setBookList = (bookList, location) => this.setState({ bookList, location })
+    setBookList = (bookList, location) => 
+    //booklist.map()
+    
+    this.setState({ bookList, location })
 
     setError = error => {
         console.error(error)

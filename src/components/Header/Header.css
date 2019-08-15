@@ -62,10 +62,10 @@
     border-radius: 15px;
   }
   
-  @media screen and (min-width: 450px) {
+  @media screen and (min-width: 490px) {
     
     .Header_image {
-      height: 60px;
+      height: 55px;
     }
 
     .center-nav {

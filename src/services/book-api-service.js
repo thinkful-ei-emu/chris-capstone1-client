@@ -5,6 +5,7 @@ const BookApiService = {
     getBooks() {
         return fetch(`${config.API_ENDPOINT}/books`,{
             headers: {
+                'authorization': `bearer ${TokenService.getAuthToken()}`
             }
         })
         .then(res =>

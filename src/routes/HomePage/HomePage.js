@@ -7,7 +7,11 @@ import TokenService from '../../services/token-service';
 import './HomePage.css';
 
 export default class HomePage extends React.Component {
-    
+    state = {
+        checked: false,
+        writForm: '',
+        genre: '',
+    }
     static contextType = ListContext;
 
     componentDidMount() {

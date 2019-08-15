@@ -44,18 +44,18 @@ export default class BookPage extends Component {
         {book.image && <img className='Book_image' src={book.image} alt='the cover of the book' />}
         </div>
         <div className='BookPage_info'>
-        <h2>{book.title}</h2>
-        <h4>{book.author}</h4>
-        <BookContent key={book.id} book={book} />
-        <Link to={`/edit/${book.id}`}>
-            <Button>
-                Edit
+            <h2>{book.title}</h2>
+            <h4>{book.author}</h4>
+            <BookContent key={book.id} book={book} />
+            <Link to={`/edit/${book.id}`}>
+                <Button>
+                    Edit
+                </Button>
+            </Link>
+            {' '}
+            <Button onClick={() => this.bookDelete(book.id)}>
+                delete
             </Button>
-        </Link>
-        {' '}
-        <Button onClick={() => this.bookDelete(book.id)}>
-            delete
-        </Button>
         </div>
       </>
     }
