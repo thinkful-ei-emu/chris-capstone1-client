@@ -5,6 +5,7 @@ import AddBook from './AddBook';
 import ReactDom from 'react-dom';
 
 describe('AddBook component', () => {
+  // jest.mock('./AddBook');
     it('renders without crashing', () => {
         const div = document.createElement('div')
         ReactDom.render(
@@ -16,7 +17,7 @@ describe('AddBook component', () => {
     it('renderes AddBook by default', () => {
         expect(toJson(shallow(<AddBook />))).toMatchSnapshot() 
     })
-    it('renderes AddBook by default', () => {
+    it('updates state for text inputs', () => {
       const component = mount(<AddBook />);
       const input = component.find('input').at(0);
       input.instance().value = 'hello';
