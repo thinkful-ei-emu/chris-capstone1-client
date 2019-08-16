@@ -53,7 +53,7 @@ exports[`RegistrationForm component renderes RegistrationForm by default 1`] = `
       id="RegistrationForm_password"
       name="password"
       required={true}
-      type="text"
+      type="password"
     />
   </div>
   <div

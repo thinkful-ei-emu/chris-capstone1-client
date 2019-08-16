@@ -52,7 +52,8 @@ export default class AddBookForm extends Component {
     updateBookList = list => this.setState({ list })
     updateBookSource = book_source => this.setState({ book_source })
     updateBookGenreFF = genreff => this.setState({ genreff })
-    updateBookGenre = genre => this.setState({ genre })
+    updateBookFGenre = fgenre => this.setState({ fgenre })
+    updateBookNfGenre = nfgenre => this.setState({ nfgenre })
     updateBookReport = book_report => this.setState({ book_report })
     updateBookImage = image => this.setState({ image })
     updateBookRating = rating => this.setState({ rating })
@@ -111,15 +112,18 @@ export default class AddBookForm extends Component {
         let title = '';
         let tag = '';
         let state;
+        let change;
         if(genreff === 'fiction') {
             title = 'Fiction Genres:';
             tag = 'fgenre';
             state = this.state.fgenre;
-            genre = fictionList.map(gre => <option value={gre}>{gre}</option>)
+            change = e => this.updateBookFGenre(e.target.value)
+            genre = fictionList.map(gre => <option key={gre} value={gre}>{gre}</option>)
         } else if(genreff === 'nonfiction') {
             title = 'Non-Fiction Genres:'
             tag = 'nfgenre'
             state = this.state.nfgenre;
+            change = e => this.updateBookNfGenre(e.target.value)
             genre = nonFicitonList.map(gre => <option value={gre}>{gre}</option>)
         } else {
             genre = <div></div>
@@ -129,7 +133,7 @@ export default class AddBookForm extends Component {
                 <label htmlFor={tag}>{title} {' '} </label>
                 <select name={tag} id={tag}
                 value={state} required
-                onChange={e => this.updateBookGenre(e.target.value)}>
+                onChange={change}>
                     {genre}
                 </select>
             </div>
@@ -146,7 +150,7 @@ export default class AddBookForm extends Component {
         'Audiobook',
         'Other eBook Source',
         'Other'];
-        const book_source = source.map(bs => <option value={bs}>{bs}</option>)
+        const book_source = source.map(bs => <option key={bs} value={bs}>{bs}</option>)
         return book_source;
     }
 

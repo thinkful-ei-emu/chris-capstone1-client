@@ -1,6 +1,7 @@
 import React from 'react';
 
 const ListContext = React.createContext({
+    list: [],
     bookList: {},
     error: null,
     location: null,
@@ -16,6 +17,7 @@ export default ListContext;
 
 export class ListProvider extends React.Component {
     state = {
+        list: [],
         bookList: {
             wishlist: [],
             reading: [],
@@ -30,9 +32,10 @@ export class ListProvider extends React.Component {
             wishlist: bookList.filter(book => book.list === 'wishlist'),
             reading: bookList.filter(book => book.list === 'reading'),
             read: bookList.filter(book => book.list === 'read')
-        }
+        },
+        location,
+        list: bookList
         })
-        this.setState({ location })
     }
 
     setError = error => {
@@ -43,30 +46,31 @@ export class ListProvider extends React.Component {
     clearError = () => this.setState({ error: null })
 
     removeBook = bookId => {
-        const newBookList = this.state.bookList.filter(book =>
+        const newBookList = this.state.list.filter(book =>
         book.id !== bookId)
         this.setState({
-            bookList: newBookList
+            list: newBookList
         })
     }
 
     updateBook = data => {
-        const newBooks = this.state.bookList.map(book =>
+        const newBooks = this.state.list.map(book =>
             (book.id === data.id) ? data : book)
         this.setState({
-            bookList: newBooks
+            list: newBooks
         })
     }
 
     addBook = data => {
-        const newBookList = [ ...this.state.bookList, data ]
+        const newBookList = [ ...this.state.list, data ]
         this.setState({
-            bookList: newBookList
+            list: newBookList
         })
     }
 
     render() {
         const value = {
+            list: this.state.list,
             bookList: this.state.bookList,
             error: this.state.error,
             location:this.state.location,

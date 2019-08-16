@@ -14,7 +14,8 @@ export default class EditBookForm extends Component {
         list: '',
         book_source: '',
         genreff: 'fiction',
-        genre: '',
+        fgenre: '',
+        nfgenre: '',
         book_report: '',
         image: '',
         rating: ''
@@ -38,20 +39,23 @@ export default class EditBookForm extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        const { title, author, list, book_source, genre,
-                book_report, image, rating } = this.state;
-
+        const { title, author, list, book_source, fgenre, nfgenre,
+            book_report, image, rating, genreff } = this.state;
+        let genre;
+        if(genreff === 'fiction'){
+            genre = fgenre;
+        } else {
+            genre = nfgenre;
+        }
         if(list !== 'read')
             this.setState({ book_report: '', rating: '' })
 
         const book = { title, author, list, book_source, genre,
             book_report, image, rating };
-        
         this.setState({ error: null })
         let id = this.props.match.params.id;
         BookApiService.patchBook(id, book)
         .then(data => {
-            // this.context.updateBook(data)
             window.open('/yourshelf','_self');
         })
         .catch(error => {
@@ -65,7 +69,8 @@ export default class EditBookForm extends Component {
     updateBookList = list => this.setState({ list })
     updateBookSource = book_source => this.setState({ book_source })
     updateBookGenreFF = genreff => this.setState({ genreff })
-    updateBookGenre = genre => this.setState({ genre })
+    updateBookFGenre = fgenre => this.setState({ fgenre })
+    updateBookNfGenre = nfgenre => this.setState({ nfgenre })
     updateBookReport = book_report => this.setState({ book_report })
     updateBookImage = image => this.setState({ image })
     updateBookRating = rating => this.setState({ rating })
@@ -122,21 +127,30 @@ export default class EditBookForm extends Component {
 
         let genre;
         let title = '';
+        let tag = '';
+        let state;
+        let change;
         if(genreff === 'fiction') {
-            title = 'Fiction Genres:'
-            genre = fictionList.map(gre => <option value={gre}>{gre}</option>)
+            title = 'Fiction Genres:';
+            tag = 'fgenre';
+            state = this.state.fgenre;
+            change = e => this.updateBookFGenre(e.target.value)
+            genre = fictionList.map(gre => <option key={gre} value={gre}>{gre}</option>)
         } else if(genreff === 'nonfiction') {
             title = 'Non-Fiction Genres:'
+            tag = 'nfgenre'
+            state = this.state.nfgenre;
+            change = e => this.updateBookNfGenre(e.target.value)
             genre = nonFicitonList.map(gre => <option value={gre}>{gre}</option>)
         } else {
             genre = <div></div>
         }
         return (
             <div>
-                <label htmlFor='genre'>{title} {' '} </label>
-                <select name='genre' id='genre'
-                value={this.state.genre} required
-                onChange={e => this.updateBookGenre(e.target.value)}>
+                <label htmlFor={tag}>{title} {' '} </label>
+                <select name={tag} id={tag}
+                value={state} required
+                onChange={change}>
                     {genre}
                 </select>
             </div>
@@ -153,7 +167,7 @@ export default class EditBookForm extends Component {
         'Audiobook',
         'Other eBook Source',
         'Other'];
-        const book_source = source.map(bs => <option value={bs}>{bs}</option>)
+        const book_source = source.map(bs => <option key={bs} value={bs}>{bs}</option>)
         return book_source;
     }
 

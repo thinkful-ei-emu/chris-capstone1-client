@@ -8,6 +8,11 @@ exports[`UserHomeItem component renderes UserHomeItem by default 1`] = `
     className="UserHomeItem_info"
     to="/books/1"
   >
+    <img
+      alt="the cover of the book"
+      className="UserHomeItem_image"
+      src="https://media.vanityfair.com/photos/5d1662c85f741a0008ed05e1/master/w_800%2Cc_limit/best-books-of-2019-Disappearing-Earth.jpg"
+    />
     <div
       className="UserHomeItem_details"
     >
@@ -24,6 +29,20 @@ exports[`UserHomeItem component renderes UserHomeItem by default 1`] = `
         >
           by: 
           Julia Phillips
+        </p>
+        <p>
+          Average User Rating: 
+          <span>
+            69.8
+            %
+          </span>
+           
+           
+           
+          #ofRatings: 
+          <span>
+            5
+          </span>
         </p>
       </div>
     </div>

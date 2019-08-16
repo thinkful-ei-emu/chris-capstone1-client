@@ -10,7 +10,7 @@ import PrivateOnlyRoute from './components/Utils/PrivateRoute';
 import UserHomePage from './routes/UserHomePage/UserHomePage';
 import BookPage from './routes/BookPage/BookPage';
 import EditBookForm from './components/EditBook/EditBook';
-import AddBookForm from './components';
+import AddBookForm from './components/AddBook/AddBook';
 import TokenService from './services/token-service';
 import HomePage from './routes/HomePage/HomePage';
 import './App.css';

@@ -97,46 +97,55 @@ exports[`EditBook component renderes EditBook by default 1`] = `
         value=""
       >
         <option
+          key="Print"
           value="Print"
         >
           Print
         </option>
         <option
+          key="Kindle"
           value="Kindle"
         >
           Kindle
         </option>
         <option
+          key="Nook"
           value="Nook"
         >
           Nook
         </option>
         <option
+          key="Website"
           value="Website"
         >
           Website
         </option>
         <option
+          key="Magazine"
           value="Magazine"
         >
           Magazine
         </option>
         <option
+          key="Journel"
           value="Journel"
         >
           Journel
         </option>
         <option
+          key="Audiobook"
           value="Audiobook"
         >
           Audiobook
         </option>
         <option
+          key="Other eBook Source"
           value="Other eBook Source"
         >
           Other eBook Source
         </option>
         <option
+          key="Other"
           value="Other"
         >
           Other
@@ -172,7 +181,7 @@ exports[`EditBook component renderes EditBook by default 1`] = `
     </div>
     <div>
       <label
-        htmlFor="genre"
+        htmlFor="fgenre"
       >
         Fiction Genres:
          
@@ -180,133 +189,158 @@ exports[`EditBook component renderes EditBook by default 1`] = `
          
       </label>
       <select
-        id="genre"
-        name="genre"
+        id="fgenre"
+        name="fgenre"
         onChange={[Function]}
         required={true}
         value=""
       >
         <option
+          key="Action and Adventure"
           value="Action and Adventure"
         >
           Action and Adventure
         </option>
         <option
+          key="Alternate history"
           value="Alternate history"
         >
           Alternate history
         </option>
         <option
+          key="Anthology"
           value="Anthology"
         >
           Anthology
         </option>
         <option
+          key="Childrens book"
           value="Childrens book"
         >
           Childrens book
         </option>
         <option
+          key="Comic book"
           value="Comic book"
         >
           Comic book
         </option>
         <option
+          key="Coming-of-age"
           value="Coming-of-age"
         >
           Coming-of-age
         </option>
         <option
+          key="Crime"
           value="Crime"
         >
           Crime
         </option>
         <option
+          key="Drama"
           value="Drama"
         >
           Drama
         </option>
         <option
+          key="Fairytale"
           value="Fairytale"
         >
           Fairytale
         </option>
         <option
+          key="Fantasy"
           value="Fantasy"
         >
           Fantasy
         </option>
         <option
+          key="Graphic novel"
           value="Graphic novel"
         >
           Graphic novel
         </option>
         <option
+          key="Historical fiction"
           value="Historical fiction"
         >
           Historical fiction
         </option>
         <option
+          key="Horror"
           value="Horror"
         >
           Horror
         </option>
         <option
+          key="Mystery"
           value="Mystery"
         >
           Mystery
         </option>
         <option
+          key="Paranormal romance"
           value="Paranormal romance"
         >
           Paranormal romance
         </option>
         <option
+          key="Picture book"
           value="Picture book"
         >
           Picture book
         </option>
         <option
+          key="Poetry"
           value="Poetry"
         >
           Poetry
         </option>
         <option
+          key="Political thriller"
           value="Political thriller"
         >
           Political thriller
         </option>
         <option
+          key="Romance"
           value="Romance"
         >
           Romance
         </option>
         <option
+          key="Satire"
           value="Satire"
         >
           Satire
         </option>
         <option
+          key="Science fiction"
           value="Science fiction"
         >
           Science fiction
         </option>
         <option
+          key="Short story"
           value="Short story"
         >
           Short story
         </option>
         <option
+          key="Suspense"
           value="Suspense"
         >
           Suspense
         </option>
         <option
+          key="Thriller"
           value="Thriller"
         >
           Thriller
         </option>
         <option
+          key="Young adult"
           value="Young adult"
         >
           Young adult

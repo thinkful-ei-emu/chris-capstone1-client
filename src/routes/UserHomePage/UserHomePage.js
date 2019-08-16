@@ -8,7 +8,7 @@ import './UserHomePage.css';
 
 export default class UserHomePage extends React.Component {
     state = {
-        list: undefined,
+        list: '',
         genre: '',
     }
     
@@ -60,7 +60,7 @@ export default class UserHomePage extends React.Component {
         const { reading, read } = this.context.bookList;
         const genres = reading.map(book => book.genre).concat(read.map(book => book.genre))
         const uniqueList = Array.from(new Set(genres));
-        const uniqueNames = uniqueList.map(gre => <option value={gre}>{gre}</option>)
+        const uniqueNames = uniqueList.map(gre => <option key={gre} value={gre}>{gre}</option>)
         return  uniqueNames
     }
 
