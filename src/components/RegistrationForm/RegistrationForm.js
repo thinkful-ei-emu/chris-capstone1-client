@@ -63,7 +63,7 @@ export default class RegistrationForm extends React.Component {
                         Password: <Required />
                     </label>
                     <Input name='password'
-                    type='text' required
+                    type='password' required
                     id='RegistrationForm_password'/>
                 </div>
                 <div className='email'>
