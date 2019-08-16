@@ -16,7 +16,8 @@ Security: JWT, XSS, Bcrypt
 Database System: PostgreSQL
 
 ## Screenshots:
-LandingPage: https://photos.app.goo.gl/CWBPFZHwkf4sHL197
+LandingPage:
+![ScreenShot of Landing Page](/relative/screenshots/MB_Landing.png)
 HomePage: https://photos.app.goo.gl/wFag18qZF7K8xBcg6
 SharedHomePage: https://photos.app.goo.gl/4WTwRsHSvNGhotky5
 BookPage: https://photos.app.goo.gl/ifQL8eRvgAC8Dci36
