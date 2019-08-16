@@ -17,10 +17,10 @@ Database System: PostgreSQL
 
 ## Screenshots:
 LandingPage:
-![ScreenShot of Landing Page](/relative/screenshots/MB_Landing.png)
-HomePage: https://photos.app.goo.gl/wFag18qZF7K8xBcg6
-SharedHomePage: https://photos.app.goo.gl/4WTwRsHSvNGhotky5
-BookPage: https://photos.app.goo.gl/ifQL8eRvgAC8Dci36
-AddBook: https://photos.app.goo.gl/VvrKuQBKmPFraMvt8
-Login: https://photos.app.goo.gl/DLzBk1ZW2LBBydvg7
-Register: https://photos.app.goo.gl/7SQJoZehh4hhdKt39
+![ScreenShot](https://github.com/thinkful-ei-emu/chris-capstone1-client/blob/master/screenshots/MB_Landing.png)
+HomePage: ![ScreenShot](https://github.com/thinkful-ei-emu/chris-capstone1-client/blob/master/screenshots/userhome.png)
+SharedHomePage: ![ScreenShot](https://github.com/thinkful-ei-emu/chris-capstone1-client/blob/master/screenshots/sharedhome.png)
+BookPage: ![ScreenShot](https://github.com/thinkful-ei-emu/chris-capstone1-client/blob/master/screenshots/bookpage.png)
+AddBook: ![ScreenShot](https://github.com/thinkful-ei-emu/chris-capstone1-client/blob/master/screenshots/addbook.png)
+Login: ![ScreenShot](https://github.com/thinkful-ei-emu/chris-capstone1-client/blob/master/screenshots/Login_page.png)
+Register: ![ScreenShot](https://github.com/thinkful-ei-emu/chris-capstone1-client/blob/master/screenshots/Register_Page.png)
