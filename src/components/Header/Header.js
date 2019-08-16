@@ -7,6 +7,23 @@ import ListContext from '../../context/ListContext';
 export default class Header extends Component {
     static contextType = ListContext;
 
+    componentDidMount() {
+        window.addEventListener('scroll', this.handleScroll, { passive: true })
+    }
+    
+      componentWillUnmount() {
+        window.removeEventListener('scroll', this.handleScroll)
+    }
+    
+    handleScroll() {
+        const header = document.getElementById('Header');
+        if(window.pageYOffset > 50){
+            header.classList.add('changeColor')
+        } else {
+            header.classList.remove('changeColor')
+        }
+    }
+
     handleLogoutClick = () => {
         TokenService.clearAuthToken();
         this.props.logoutSuccess();
@@ -56,9 +73,9 @@ export default class Header extends Component {
 
     render() {
         return <>
-            <nav className='Header'>
+            <nav id='Header'>
                 <Link to='/'>
-                    <img className='Header_image' src={require('../../MB_Logo.jpg')} alt='the mobile bookshelf logo' />
+                    <img className='Header_image' src={require('../../mb_logo.png')} alt='the mobile bookshelf logo' />
                 </Link>
               {this.props.loggedIn
                 ? this.renderLogoutLink()

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ListContext = React.createContext({
-    bookList: [],
+    bookList: {},
     error: null,
     location: null,
     setError: () => {},
@@ -16,15 +16,24 @@ export default ListContext;
 
 export class ListProvider extends React.Component {
     state = {
-        bookList: [],
+        bookList: {
+            wishlist: [],
+            reading: [],
+            read: [],
+        },
         error: null,
         location: null,
     };
 
-    setBookList = (bookList, location) => 
-    //booklist.map()
-    
-    this.setState({ bookList, location })
+    setBookList = (bookList, location) => {
+        this.setState({ bookList: {
+            wishlist: bookList.filter(book => book.list === 'wishlist'),
+            reading: bookList.filter(book => book.list === 'reading'),
+            read: bookList.filter(book => book.list === 'read')
+        }
+        })
+        this.setState({ location })
+    }
 
     setError = error => {
         console.error(error)

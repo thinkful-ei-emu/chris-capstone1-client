@@ -8,6 +8,12 @@
     flex-wrap: wrap;
 }
 
+.List {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
 .AddBook{
     background: #FF8D2E;
     color: black;
@@ -15,4 +21,25 @@
     border-radius: 15px;
     box-shadow: 0px 11px 21px -8px rgba(0, 0, 0, 0.5);
     text-decoration: none;
+    margin-right: 5px;
+}
+
+#userFilterBar .listFilter {
+    margin-top: 10px;
+}
+
+#userFilterBar {
+    overflow: hidden;
+    background-color: #00CCF0;
+    border-radius: 15px;
+    padding: 10px;
+    transition: 1s;
+}
+
+.sticky {
+    position: fixed;
+    top: 10vh;
+    width: 100%;
+    right: 0;
+    border-radius: 0;
 }

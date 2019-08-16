@@ -112,13 +112,11 @@ export default class AddBookForm extends Component {
         let tag = '';
         let state;
         if(genreff === 'fiction') {
-            // this.setState({ genre: 'Action and Adventure' })
             title = 'Fiction Genres:';
             tag = 'fgenre';
             state = this.state.fgenre;
             genre = fictionList.map(gre => <option value={gre}>{gre}</option>)
         } else if(genreff === 'nonfiction') {
-            // this.setState({ genre: 'Art' })
             title = 'Non-Fiction Genres:'
             tag = 'nfgenre'
             state = this.state.nfgenre;
@@ -228,11 +226,11 @@ export default class AddBookForm extends Component {
                     />
                 </div></>}
                 <div className='AddBook__buttons'>
-                        <Button type='submit'>
+                        <Button className='addbtn' type='submit'>
                         Add
                         </Button>
                         {' '}
-                        <Button type='button' onClick={this.handleCancelClick}>
+                        <Button className='cancelbtn' type='button' onClick={this.handleCancelClick}>
                         Cancel
                         </Button>
                     </div>

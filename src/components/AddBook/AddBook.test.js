@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import AddBook from './AddBook';
 import ReactDom from 'react-dom';
@@ -16,4 +16,11 @@ describe('AddBook component', () => {
     it('renderes AddBook by default', () => {
         expect(toJson(shallow(<AddBook />))).toMatchSnapshot() 
     })
+    it('renderes AddBook by default', () => {
+      const component = mount(<AddBook />);
+      const input = component.find('input').at(0);
+      input.instance().value = 'hello';
+      input.simulate('change');
+      expect(component.state().title).toEqual('hello');
+  })
 })

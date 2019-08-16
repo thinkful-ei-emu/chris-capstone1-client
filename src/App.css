@@ -7,13 +7,6 @@ body {
     background-color: #E4F6F9;
     height: 100%;
 }
-
-/* .App {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    max-width: 960px;
-    margin: 0 auto;
-  } */
   
   .AppHeader {
     padding-left: 10px;
@@ -21,5 +14,5 @@ body {
   }
   
   .AppMain {
-    margin-top: 6vh;
+    margin-top: 13vh;
   }

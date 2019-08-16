@@ -333,12 +333,14 @@ exports[`AddBook component renderes AddBook by default 1`] = `
       className="AddBook__buttons"
     >
       <Button
+        className="addbtn"
         type="submit"
       >
         Add
       </Button>
        
       <Button
+        className="cancelbtn"
         onClick={[Function]}
         type="button"
       >

@@ -69,7 +69,7 @@ export default class HomePageItem extends React.Component {
     }
 
     render () {
-        const {book, addToYourShelf} = this.props;
+        const {book, addToYourShelf, list} = this.props;
         const newBook = {
             title: book.title,
             author: book.author,
@@ -84,12 +84,12 @@ export default class HomePageItem extends React.Component {
                 {book.image && <img className='HomePageItem_image' src={book.image} alt='the cover of the book' />}
                 <div className='HomePageItem_details'>
                     <div className='HomePageItem_text'>
-                        <h2 className='HomePageItem_title'>{book.title}</h2>
-                        <p className='HomePageItem_author'>{book.author}</p>
-                        <p>Being read by: <strong>{book.user.user_name}</strong></p>
-                        {book.rating && <p>{book.user.user_name}'s rating: <span>{book.rating}%</span></p>}
-                        <p>Average User Rating: <span>{book.average_rating}%</span> {' '}{' '}
-                            #ofRatings: <span>{book.number_of_ratings}</span></p>
+                        <h3 className='HomePageItem_title'>{book.title}</h3>
+                        <p className='HomePageItem_author'>by: {book.author}</p>
+                        {list !== undefined && <p>Being read by: <strong>{book.user.user_name}</strong></p>}
+                        {list !== undefined && book.rating && <p>{book.user.user_name}'s rating: <span>{book.rating}%</span></p>}
+                        <p>Average User Rating: <span>{book.average_rating}%</span></p>
+                        {list !== undefined && <p>#ofRatings: <span>{book.number_of_ratings}</span></p>}
                     </div>
                 </div>
                 <div>

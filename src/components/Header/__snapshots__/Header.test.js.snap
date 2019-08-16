@@ -3,7 +3,7 @@
 exports[`Header component renderes Header by default 1`] = `
 <Fragment>
   <nav
-    className="Header"
+    id="Header"
   >
     <Link
       to="/"
@@ -11,7 +11,7 @@ exports[`Header component renderes Header by default 1`] = `
       <img
         alt="the mobile bookshelf logo"
         className="Header_image"
-        src="MB_Logo.jpg"
+        src="mb_logo.png"
       />
     </Link>
     <div

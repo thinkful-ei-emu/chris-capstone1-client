@@ -15,42 +15,22 @@ exports[`HomePageItem component renderes HomePageItem by default 1`] = `
     <div
       className="HomePageItem_text"
     >
-      <h2
+      <h3
         className="HomePageItem_title"
       >
         Disappearing Earth
-      </h2>
+      </h3>
       <p
         className="HomePageItem_author"
       >
+        by: 
         Julia Phillips
-      </p>
-      <p>
-        Being read by: 
-        <strong>
-          s.smith
-        </strong>
-      </p>
-      <p>
-        s.smith
-        's rating: 
-        <span>
-          13
-          %
-        </span>
       </p>
       <p>
         Average User Rating: 
         <span>
           69.8
           %
-        </span>
-         
-         
-         
-        #ofRatings: 
-        <span>
-          5
         </span>
       </p>
     </div>

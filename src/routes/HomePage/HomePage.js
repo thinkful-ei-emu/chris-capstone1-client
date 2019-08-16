@@ -8,9 +8,8 @@ import './HomePage.css';
 
 export default class HomePage extends React.Component {
     state = {
-        checked: false,
-        writForm: '',
-        genre: '',
+        genre: undefined,
+        list: undefined,
     }
     static contextType = ListContext;
 
@@ -20,7 +19,28 @@ export default class HomePage extends React.Component {
             .then(res => res.filter(book => 
                 book.user.user_name !== TokenService.getUserName()))
             .then(res => this.context.setBookList(res, this.props.match.path))
-            .catch(this.context.setError)
+            .catch(this.context.setError);
+            window.addEventListener('scroll', this.handleScroll, { passive: true })
+    }
+
+    componentDidUpdate() {
+        const { list } = this.state;
+        const target = document.getElementById('bookList');
+        if(target) target.classList.remove('List')
+        if(!!list) target.classList.add('List')
+    }
+    
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.handleScroll)
+    }
+
+    handleScroll() {
+        const header = document.getElementById('homeFilterBar');
+        if(window.pageYOffset > 100){
+            header.classList.add('sticky')
+        } else {
+            header.classList.remove('sticky')
+        }
     }
 
     addRating = (newRating, book_id) => {
@@ -34,31 +54,51 @@ export default class HomePage extends React.Component {
         this.setState({ error: null })
         BookApiService.postBook(book)
     }
+
+    updateBookList = list => this.setState({ list })
+    updateBookGenre = genre => this.setState({ genre })
+
+    renderGenreList(){
+        const { reading, read } = this.context.bookList;
+        const genres = reading.map(book => book.genre).concat(read.map(book => book.genre))
+        const uniqueList = Array.from(new Set(genres));
+        const uniqueNames = uniqueList.map(gre => <option value={gre}>{gre}</option>)
+        return  uniqueNames
+    }
+
+    renderLists(){
+        const { list } = this.state;
+        const { reading, read } = this.context.bookList;
+        if(list === 'reading'){
+            return <>{this.renderBooks(reading, 'What Others are Reading')}</>;
+        } else if(list === 'read'){
+            return <>{this.renderBooks(read, 'Books Others have Enjoyed')}</>;
+        } else {
+            return  <>
+                        {this.renderBooks(reading, 'What Others are Reading')}
+                        {this.renderBooks(read, 'Books Others have Enjoyed')}
+                    </>;
+        }
+        
+    }
     
-    renderBooks() {
-        const { bookList = [] } = this.context;
-        let curentBook = bookList.filter(book => book.list === 'reading')
-        let readBook = bookList.filter(book => book.list === 'read')
-        let currentList = curentBook.map(book => 
-            <HomePageItem key={book.id} book={book} 
+    renderBooks(arr, name) {
+        let array = arr;
+        if(!!this.state.genre) array = arr.filter(book => book.genre === this.state.genre)
+        let List = array.map(book => {
+            if(this.props.genre) book = book.filter(gre => gre === this.props.genre)
+            return <HomePageItem key={book.id} book={book} list={this.state.list}
             addRating={(newRating, book_id) => this.addRating(newRating, book_id)} 
             removeRating={id => this.removeRating(id)}
-            addToYourShelf={book => this.addToYourShelf(book)} />)
-        let readList = readBook.map(book => 
-            <HomePageItem key={book.id} book={book} 
-            addRating={(newRating, book_id) => this.addRating(newRating, book_id)}
-            removeRating={id => this.removeRating(id)}
-            addToYourShelf={book => this.addToYourShelf(book)} />)
+        addToYourShelf={book => this.addToYourShelf(book)} />})
 
         return (
         <>
-            <div className='List'>
-                <h2>What Others are Reading</h2>
-                {currentList}
-            </div>
-            <div className='List'>
-                <h2>Books Others have Enjoyed</h2>
-                {readList}
+            <div>
+                <h2>{name}</h2>
+                <div id='bookList'>
+                {List.length !== 0 ? List : <div>There are currently no books for this list</div>}
+                </div>
             </div>
         </>
         )
@@ -70,7 +110,32 @@ export default class HomePage extends React.Component {
             <Section list className='HomePage'>
                 {error
                   ? <p className='red'>There was an error, try again.</p>
-                  : this.renderBooks()}
+                  : <>
+                        <div id='homeFilterBar'>
+                            <div className='listFilter'>
+                                <label htmlFor='list'>View List: {' '} </label>
+                                <select name='list' id='list'
+                                value={this.state.list} required
+                                onChange={e => this.updateBookList(e.target.value)}>
+                                    <option value=''>All Lists</option>
+                                    <option value='reading'>Current Reads</option>
+                                    <option value='read'>Finished Reads</option>
+                                </select>
+                            </div>
+                            <div className='genreFilter'>
+                                <label htmlFor='genre'>Filter by Genre: {' '} </label>
+                                <select name='grene' id='grene'
+                                value={this.state.genre} required
+                                onChange={e => this.updateBookGenre(e.target.value)}>
+                                    <option value=''>All Genres</option>
+                                    {this.renderGenreList()}
+                                </select>
+                            </div>
+                        </div>
+                        <div className='HomePageList'>
+                            {this.renderLists()}
+                        </div>
+                    </>}
             </Section>
         )
     }

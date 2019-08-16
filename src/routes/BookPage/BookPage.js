@@ -29,7 +29,6 @@ export default class BookPage extends Component {
     }
 
     bookDelete = id => {
-        console.log(id)
         BookApiService.deleteBook(id)
         .then(data => window.open('/yourshelf','_self'))
         .catch(error => {
