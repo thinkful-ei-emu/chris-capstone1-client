@@ -36,11 +36,15 @@ export default class BookPage extends Component {
         })
     }
 
+    addDefaultSrc(ev){
+        ev.target.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/480px-No_image_available.svg.png'
+      }
+
     renderBook() {
         const { book } = this.context;
         return <>
         <div className='BookPage_image'>
-        {book.image && <img className='Book_image' src={book.image} alt='the cover of the book' />}
+        {book.image && <img className='Book_image' onError={this.addDefaultSrc} src={book.image} alt='the cover of the book' />}
         </div>
         <div className='BookPage_info'>
             <h2>{book.title}</h2>

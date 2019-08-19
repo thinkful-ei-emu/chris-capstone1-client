@@ -68,6 +68,10 @@ export default class HomePageItem extends React.Component {
             </div>
     }
 
+    addDefaultSrc(ev){
+        ev.target.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/480px-No_image_available.svg.png'
+      }
+
     render () {
         const {book, addToYourShelf, list} = this.props;
         const newBook = {
@@ -81,7 +85,7 @@ export default class HomePageItem extends React.Component {
 
         return (
             <div className='HomePageItem'>
-                {book.image && <img className='HomePageItem_image' src={book.image} alt='the cover of the book' />}
+                {book.image && <img className='HomePageItem_image' onError={this.addDefaultSrc} src={book.image} alt='the cover of the book' />}
                 <div className='HomePageItem_details'>
                     <div className='HomePageItem_text'>
                         <h3 className='HomePageItem_title'>{book.title}</h3>

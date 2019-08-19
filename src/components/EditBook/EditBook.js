@@ -14,8 +14,8 @@ export default class EditBookForm extends Component {
         list: '',
         book_source: '',
         genreff: 'fiction',
-        fgenre: '',
-        nfgenre: '',
+        fgenre: 'Action and Adventure',
+        nfgenre: 'Art',
         book_report: '',
         image: '',
         rating: ''
@@ -41,6 +41,7 @@ export default class EditBookForm extends Component {
         e.preventDefault()
         const { title, author, list, book_source, fgenre, nfgenre,
             book_report, image, rating, genreff } = this.state;
+        console.log(image)
         let genre;
         if(genreff === 'fiction'){
             genre = fgenre;
@@ -52,6 +53,8 @@ export default class EditBookForm extends Component {
 
         const book = { title, author, list, book_source, genre,
             book_report, image, rating };
+
+        console.log(book)
         this.setState({ error: null })
         let id = this.props.match.params.id;
         BookApiService.patchBook(id, book)
