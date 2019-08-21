@@ -7,6 +7,7 @@ exports[`HomePageItem component renderes HomePageItem by default 1`] = `
   <img
     alt="the cover of the book"
     className="HomePageItem_image"
+    onError={[Function]}
     src="https://media.vanityfair.com/photos/5d1662c85f741a0008ed05e1/master/w_800%2Cc_limit/best-books-of-2019-Disappearing-Earth.jpg"
   />
   <div

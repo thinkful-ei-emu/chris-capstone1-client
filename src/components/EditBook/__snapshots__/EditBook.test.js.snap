@@ -193,7 +193,7 @@ exports[`EditBook component renderes EditBook by default 1`] = `
         name="fgenre"
         onChange={[Function]}
         required={true}
-        value=""
+        value="Action and Adventure"
       >
         <option
           key="Action and Adventure"
